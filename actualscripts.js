@@ -9,35 +9,35 @@
 // --------------------------------------------------
 
 // First, we create a variable for the current scene being displayed
-let currentScene = "backyard";
+let currentScene = "aisle1";
 
 // Then, we create an object that stores the data for each scene,
 const scenes = {
   // See "backyard" for the first example
-  backyard: {
-    title: "Location: Backyard",
-    character: "Interviewee:Grandma",
-    text: "Text: well what I remember happening is that Darcie went inside to play with her pretend kitchen, I heard her neighbor mention he was really hungry, and the dog ran around really quickly",
+  aisle1: {
+    title: "Location: Microcenter Aisle",
+    character: "Interviewee:Clerk",
+    text: "Choose CPU",
     // you can choose how many choices to include
     // each choice can have text, an action, and/or nextScene
     choices: [
       {
-        text: "Chase after the dog (-10 HP)",
+        text: "Chase after the dog (-10 Money)",
         action: function () {
-          updateHealth(-10);
+          updateMoney(-10);
         },
-        nextScene: "entrance"
+        nextScene: "aisle2"
       },
       {
-        text: "Ask about the neighbor",
-        nextScene: "hallway"
+        text: "You have entered The second aisle",
+        nextScene: "aisle1"
       },
       {
           text: "Pick up the brass key",
           action: function () {
             pickUpItem("brass key");
           },
-          nextScene: "hallway"
+          nextScene: "aisle1"
       }
     ]
   },
@@ -164,19 +164,19 @@ updateScene(currentScene);
 // --------------------------------------------------
 
 // Create a variable for health
-let health = 100;
+let money = 2000;
 
-// Display current health
-const healthDisplay = document.getElementById("health-display");
+// Display current money
+const moneyDisplay = document.getElementById("money-display");
 
-// Create a function to update health 
-function updateHealth(amount) {
-  health += amount;
-  healthDisplay.textContent = health;
+// Create a function to update money 
+function updateMoney(amount) {
+  money += amount;
+  moneyDisplay.textContent = money;
 }
 
-// This refreshes the health display
-updateHealth(0);
+// This refreshes the money display
+updateMoney(0);
 
 // --------------------------------------------------
 // INVENTORY
