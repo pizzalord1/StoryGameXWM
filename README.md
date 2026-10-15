@@ -1,2 +1,2 @@
 # StoryGameXWM
-Story game for 
+Story game for capstone
