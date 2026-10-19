@@ -1,5 +1,5 @@
 // --------------------------------------------------
-// SCENESS SCENESSSSS
+// SCENES
 // Read through the comments below to see what this section does
 //
 // TO CUSTOMIZE THIS SECTION
@@ -9,68 +9,68 @@
 // --------------------------------------------------
 
 // First, we create a variable for the current scene being displayed
-let currentScene = "aisle1";
+let currentScene = "bigroom";
 
 // Then, we create an object that stores the data for each scene,
 const scenes = {
-  // See "backyard" for the first example
-  aisle1: {
-    title: "Location: Microcenter Aisle",
-    character: "Interviewee:Clerk",
-    text: "Choose CPU",
+  // See "bigroom" for the first example
+  bigroom: {
+    title: "Location: bigroom",
+    character: "Interviewer:clerk",
+    text: "your job is to find the correct CPU without breaking your bank.",
     // you can choose how many choices to include
     // each choice can have text, an action, and/or nextScene
     choices: [
       {
-        text: "Chase after the dog (-10 Money)",
+        text: "Buy the i9-14900k like you dont care.",
         action: function () {
-          updateMoney(-10);
+          updateHealth(-100);
         },
-        nextScene: "aisle2"
+        nextScene: "entrance"
       },
       {
-        text: "You have entered The second aisle",
-        nextScene: "aisle1"
+        text: "Ask for a GPU",
+        nextScene: "gpuArea"
       },
       {
           text: "Pick up the brass key",
           action: function () {
             pickUpItem("brass key");
           },
-          nextScene: "aisle1"
+          nextScene: "gpuArea"
       }
     ]
   },
 
   entrance: {
     title: "Location: Entrance",
-    character: "Interviewee:Neighbor",
-    text: "well what I remember...",
+    character: "Interviewer:Other clerk",
+    text: "what.",
     choices: [
       {
         text: "Ask about the dog",
-        nextScene: "backyard"
+        nextScene: "bigroom"
       },
          {
-        text: "Ask about the neighbor",
-        nextScene: "hallway"
+        text: "Ask about the the other clerk",
+        nextScene: "gpuArea"
       }
     ]
   },
 
-  hallway: {
-    title: "The Hallway",
-    text: "The hallway is dark and silent.",
+  gpuArea: {
+    title: "The gpuArea",
+    text: "The gpuArea is dark and silent.",
     choices: [
       {
-        text: "backyard",
-        nextScene: "lockedDoor"
+        text: "bigroom",
+        nextScene: "goldenSSD"
       }
     ]
   },
 
-   lockedDoor: {
-    title: "The Locked Door",
+   goldenSSD: {
+    title: "The goldenSSD",
     text: "The door handle doesn't move.",
     choices: [
       {
@@ -79,14 +79,14 @@ const scenes = {
       },
       {
         text: "Go back",
-        nextScene: "backyard"
+        nextScene: "bigroom"
       }
     ]
   },
 
    solution: {
     title: "The solution",
-    text: "You solved the mystery!",
+    text: "You didnt break your bank!",
     
   }
 };
@@ -164,19 +164,19 @@ updateScene(currentScene);
 // --------------------------------------------------
 
 // Create a variable for health
-let money = 2000;
+let health = 100;
 
-// Display current money
-const moneyDisplay = document.getElementById("money-display");
+// Display current health
+const healthDisplay = document.getElementById("health-display");
 
-// Create a function to update money 
-function updateMoney(amount) {
-  money += amount;
-  moneyDisplay.textContent = money;
+// Create a function to update health 
+function updateHealth(amount) {
+  health += amount;
+  healthDisplay.textContent = health;
 }
 
-// This refreshes the money display
-updateMoney(0);
+// This refreshes the health display
+updateHealth(0);
 
 // --------------------------------------------------
 // INVENTORY
@@ -214,3 +214,4 @@ function unlockDoor() {
     messageDisplay.textContent = "The door is locked.";
   }
 }
+
