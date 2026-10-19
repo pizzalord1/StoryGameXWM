@@ -71,8 +71,8 @@ const scenes = {
   },
 
    goldenSSD: {
-    title: "The goldenSSD",
-    text: "The door handle doesn't move.",
+    title: "The golden SSD",
+    text: "The door bar doesn't move.",
     choices: [
       {
         text: "Try to exit",
