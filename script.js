@@ -175,6 +175,35 @@ function updateHealth(amount) {
   health += amount;
   healthDisplay.textContent = health;
 }
+// I should add a check to see if health is below 0 and if so, end the game or show a "game over" scene
+// gameOver: {
+//   title: "Game Over",
+//   character: "",
+//   text: "You ran out of health.",
+//   choices: []
+// }
+// function updateHealth(amount) {
+//   health = Math.max(0, health + amount);
+//   healthDisplay.textContent = health;
+
+//   if (health === 0) {
+//     updateScene("gameOver");
+//   }
+// }
+// if (choice.action) {
+//   choice.action();
+// }
+
+// if (health === 0) return;
+
+// if (choice.nextScene) {
+//   updateScene(choice.nextScene);
+// }
+
+
+
+
+
 
 // This refreshes the health display
 updateHealth(0);
@@ -215,4 +244,3 @@ function unlockDoor() {
     messageDisplay.textContent = "The door is locked.";
   }
 }
-
