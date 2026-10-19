@@ -34,9 +34,9 @@ const scenes = {
         nextScene: "gpuArea"
       },
       {
-          text: "Pick up the brass key",
+          text: "Pick up the golden item",
           action: function () {
-            pickUpItem("brass key");
+            pickUpItem("golden item");
           },
           nextScene: "gpuArea"
       }
@@ -46,10 +46,10 @@ const scenes = {
   entrance: {
     title: "Location: Entrance",
     character: "Interviewer:Other clerk",
-    text: "what.",
+    text: "what...",
     choices: [
       {
-        text: "Ask about the dog",
+        text: "Go back to the big room",
         nextScene: "bigroom"
       },
          {
@@ -75,7 +75,7 @@ const scenes = {
     text: "The door handle doesn't move.",
     choices: [
       {
-        text: "Try to open it",
+        text: "Try to exit",
         action: unlockDoor
       },
       {
@@ -209,7 +209,7 @@ function pickUpItem(itemName) {
 
 // Create a function that checks if the inventory contains one item and if so shows the win condition scene.
 function unlockDoor() {
-  if (inventory.includes("brass key")) {
+  if (inventory.includes("golden item")) {
     updateScene("solution");
   } else {
     messageDisplay.textContent = "The door is locked.";
