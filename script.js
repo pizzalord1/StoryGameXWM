@@ -71,7 +71,11 @@ const scenes = {
   },
 
    goldenSSD: {
+<<<<<<< HEAD
     title: "The goldenSSD",
+=======
+    title: "The golden SSD",
+>>>>>>> 06063035bb4a3ddc5fdb3484a71897fd7d81a44c
     text: "The door bar doesn't move.",
     choices: [
       {
