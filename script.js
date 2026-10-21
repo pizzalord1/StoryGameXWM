@@ -71,11 +71,7 @@ const scenes = {
   },
 
    goldenSSD: {
-<<<<<<< HEAD
-    title: "The goldenSSD",
-=======
     title: "The golden SSD",
->>>>>>> 06063035bb4a3ddc5fdb3484a71897fd7d81a44c
     text: "The door bar doesn't move.",
     choices: [
       {
@@ -138,7 +134,7 @@ function updateScene(sceneName) {
   choicesContainer.innerHTML = "";
 
   // Loop through each choice in the scene, connecting an action and nextScene if included
-  scene.choices.forEach(function (choice) {
+  (scene.choices || []).forEach(function (choice) {
     const button = document.createElement("button");
 
     button.textContent = choice.text;
