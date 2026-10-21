@@ -72,7 +72,7 @@ const scenes = {
 
    goldenSSD: {
     title: "The goldenSSD",
-    text: "The door handle doesn't move.",
+    text: "The door bar doesn't move.",
     choices: [
       {
         text: "Try to exit",
@@ -111,6 +111,7 @@ const sceneTitle = document.getElementById("scene-title");
 const sceneText = document.getElementById("scene-text");
 const choicesContainer = document.getElementById("choices-container");
 const characterName = document.getElementById("character-name");
+const sceneImage = document.getElementById("scene-image");
 
 // Then, we create a function to update the scene,
 function updateScene(sceneName) {
@@ -120,6 +121,8 @@ function updateScene(sceneName) {
 
   //This accesses the scene object based on the scene name
   const scene = scenes[sceneName];
+
+  sceneImage.hidden = sceneName !== "bigroom";
 
   // Here, for each html element, you change the textContent to match
   // the appropriate text from the scene object
@@ -169,11 +172,16 @@ let health = 100;
 
 // Display current health
 const healthDisplay = document.getElementById("health-display");
+const messageDisplay = document.getElementById("message-display");
 
 // Create a function to update health 
 function updateHealth(amount) {
   health += amount;
   healthDisplay.textContent = health;
+
+  if (health <= 0) {
+    messageDisplay.textContent = "You ran out of money!";
+  }
 }
 // I should add a check to see if health is below 0 and if so, end the game or show a "game over" scene
 // gameOver: {
@@ -220,7 +228,6 @@ let inventory = [];
 
 // Display current inventory
 const inventoryDisplay = document.querySelector("#inventory-display");
-const messageDisplay = document.getElementById("message-display");
 
 // Create a function to update inventory 
 function pickUpItem(itemName) {
